@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { SafeAreaView, StyleSheet, Text } from "react-native";
 import params from "./params";
 import Field from "./components/Field";
+import Flag from "./components/Flag";
 
 export default class App extends Component {
     render() {
@@ -12,6 +13,7 @@ export default class App extends Component {
                     <Text style={styles.instructions}>Tamanho da grade:
                         {params.getRowsAmount()}x{params.getColumnsAmount()}
                     </Text>
+                    
                     <Field/>
                     <Field opened/>
                     <Field opened nearMines={1}/>
@@ -23,6 +25,8 @@ export default class App extends Component {
                     <Field mined opened exploded/>
                     <Field flagged/>
                     <Field flagged opened/>
+                    <Flag />
+                    <Flag bigger />
 
                 </SafeAreaView>
             </>
@@ -35,12 +39,13 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: "#f5fcff",
         justifyContent: "center",
+        justifyContent:"space-around",
         alignItems: "center",
         padding: 10
     },
-    welcome:{
+    welcome: {
         fontSize: 20,
-        textAling:'center',
-        margin:10,
+        textAling: 'center',
+        margin: 10,
     },
 })
