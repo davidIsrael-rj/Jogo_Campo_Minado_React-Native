@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { SafeAreaView, StyleSheet, Text } from "react-native";
+import { SafeAreaView, StyleSheet, Text, View } from "react-native";
 import params from "./params";
 import Field from "./components/Field";
 import Flag from "./components/Flag";
 import { createMinedBoard } from "./functions";
+import MineField from "./components/MineField";
 
 export default class App extends Component {
 
@@ -16,7 +17,7 @@ export default class App extends Component {
     minesAmount =()=>{
         const cols = params.getColumnsAmount()
         const rows = params.getRowsAmount()
-        return MathCeil(cols * rows * params.difficultLevel)
+        return Math.ceil(cols * rows * params.difficultLevel)
     }
 
     createState =()=>{
@@ -36,20 +37,9 @@ export default class App extends Component {
                         {params.getRowsAmount()}x{params.getColumnsAmount()}
                     </Text>
                     
-                    <Field/>
-                    <Field opened/>
-                    <Field opened nearMines={1}/>
-                    <Field opened nearMines={2}/>
-                    <Field opened nearMines={3}/>
-                    <Field opened nearMines={6}/>
-                    <Field mined/>
-                    <Field mined opened/>
-                    <Field mined opened exploded/>
-                    <Field flagged/>
-                    <Field flagged opened/>
-                    <Flag />
-                    <Flag bigger />
-
+                    <View style={styles.board}>
+                        <MineField board={this.state.board}/>
+                    </View>
                 </SafeAreaView>
             </>
         )
@@ -58,16 +48,14 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: "#f5fcff",
-        justifyContent: "center",
-        justifyContent:"space-around",
-        alignItems: "center",
-        padding: 10
+       flex:1,
+       justifyContent:"flex-end"
+    },
+    board: {
+        alignItems:"center",
+        backgroundColor: '#AAA'
     },
     welcome: {
-        fontSize: 20,
-        textAling: 'center',
-        margin: 10,
+        
     },
 })
