@@ -3,8 +3,15 @@ import { SafeAreaView, StyleSheet, Text } from "react-native";
 import params from "./params";
 import Field from "./components/Field";
 import Flag from "./components/Flag";
+import { createMinedBoard } from "./functions";
 
 export default class App extends Component {
+
+
+    constructor(props){
+        super(props)
+        this.state = this.createState()
+    }
 
     minesAmount =()=>{
         const cols = params.getColumnsAmount()
@@ -15,6 +22,9 @@ export default class App extends Component {
     createState =()=>{
         const cols = params.getColumnsAmount()
         const rows = params.getRowsAmount()
+        return {
+            board: createMinedBoard(rows, cols, this.minesAmount()),
+        }
     }
 
     render() {
