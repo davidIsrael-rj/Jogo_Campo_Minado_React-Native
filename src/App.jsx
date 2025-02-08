@@ -5,6 +5,13 @@ import Field from "./components/Field";
 import Flag from "./components/Flag";
 
 export default class App extends Component {
+
+    minesAmount =()=>{
+        const cols = params.getColumnsAmount()
+        const rows = params.getRowsAmount()
+        return MathCeil(cols * rows * params.difficultLevel)
+    }
+
     render() {
         return (
             <>
