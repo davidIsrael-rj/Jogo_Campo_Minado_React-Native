@@ -12,6 +12,11 @@ export default class App extends Component {
         return MathCeil(cols * rows * params.difficultLevel)
     }
 
+    createState =()=>{
+        const cols = params.getColumnsAmount()
+        const rows = params.getRowsAmount()
+    }
+
     render() {
         return (
             <>
