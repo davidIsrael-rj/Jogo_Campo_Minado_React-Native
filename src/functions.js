@@ -46,7 +46,7 @@ const cloneBoard = board => {
     })
 }
 
-const getMeighbors = (board, row, column)=>{
+const getNeighbors = (board, row, column)=>{
     const neighbors =[]
     const rows = [row -1, row, row +1]
     const columns = [column -1, column, column + 1]
@@ -61,4 +61,10 @@ const getMeighbors = (board, row, column)=>{
     })
     return neighbors
 }
+
+const safeNeighborhood = (board, row, column)=>{
+    const safes = (result, neighbors)=> result && !neighbors.mined
+    return getNeighbors(board, row, column).reduce(safes, true)
+}
+
 export {createMinedBoard}
