@@ -59,5 +59,6 @@ const getMeighbors = (board, row, column)=>{
             }
         })
     })
+    return neighbors
 }
 export {createMinedBoard}
