@@ -83,5 +83,13 @@ const openField = (board, row, column) => {
     }
 }
 
+const fields = board => [].concat(...board)
 
-export { createMinedBoard }
+
+
+export { 
+    createMinedBoard,
+    cloneBoard,
+    openField,
+    
+}
