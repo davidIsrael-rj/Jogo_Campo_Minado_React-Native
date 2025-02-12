@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native"
+import { StyleSheet, Text, TouchableWithoutFeedback, View } from "react-native"
 import params from "../params"
 import Mine from "./Mine"
 import Flag from "./Flag"
@@ -22,14 +22,16 @@ export default props => {
     }
 
     return (
-        <View style={styleField}>
-            {!mined && opened && nearMines > 0 ?
-                <Text style={[styles.label, { color: color }]}>
-                    {nearMines}</Text> : false}
-                {mined && opened ? <Mine/> : false}
-                {flagged && !opened ? <Flag/> : false}
+        <TouchableWithoutFeedback onPress={props.onOpen}>
+            <View style={styleField}>
+                {!mined && opened && nearMines > 0 ?
+                    <Text style={[styles.label, { color: color }]}>
+                        {nearMines}</Text> : false}
+                {mined && opened ? <Mine /> : false}
+                {flagged && !opened ? <Flag /> : false}
 
-        </View>
+            </View>
+        </TouchableWithoutFeedback>
     )
 }
 
@@ -46,18 +48,18 @@ const styles = StyleSheet.create({
         borderRightColor: '#333',
         borderBottomColor: '#333'
     },
-    opened:{
+    opened: {
         backgroundColor: '#999',
-        borderColor:'#777',
+        borderColor: '#777',
         alignItems: "center",
         justifyContent: "center",
     },
-    label:{
+    label: {
         fontWeight: 'bold',
         fontSize: params.fontSize,
     },
-    exploded:{
-        backgroundColor:'red',
+    exploded: {
+        backgroundColor: 'red',
         borderColor: 'red',
     }
 })
