@@ -33,7 +33,7 @@ export default class App extends Component {
         return {
             board: createMinedBoard(rows, cols, this.minesAmount()),
             won: false,
-            lost: false
+            lost: false,
         }
     }
 
@@ -66,7 +66,7 @@ export default class App extends Component {
                     
                     <View style={styles.board}>
                         <MineField board={this.state.board}
-                            onOoenField={this.onOpenField}/>
+                            onOpenField={this.onOpenField}/>
                     </View>
                 </SafeAreaView>
             </>
