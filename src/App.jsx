@@ -13,6 +13,7 @@ import {
     showMines,
     invertFlag
 } from "./functions";
+import Header from "./components/Header";
 
 export default class App extends Component {
 
@@ -76,7 +77,7 @@ export default class App extends Component {
                     <Text style={styles.instructions}>Tamanho da grade:
                         {params.getRowsAmount()}x{params.getColumnsAmount()}
                     </Text>
-
+                        <Header/>
                     <View style={styles.board}>
                         <MineField board={this.state.board}
                             onOpenField={this.onOpenField} 
@@ -91,7 +92,9 @@ export default class App extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: "flex-end"
+        justifyContent: "flex-end",
+        backgroundColor:'#fff',
+        padding: 10
     },
     board: {
         alignItems: "center",
