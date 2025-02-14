@@ -11,7 +11,8 @@ import {
     hadExplosion,
     wonGame,
     showMines,
-    invertFlag
+    invertFlag,
+    flagsUsed
 } from "./functions";
 import Header from "./components/Header";
 
@@ -73,7 +74,8 @@ export default class App extends Component {
         return (
             <>
                 <SafeAreaView style={styles.container}>
-                    <Header />
+                    <Header flagsLeft={this.minesAmount() - flagsUsed(this.state.board)}
+                        onNewGame={() => this.setState(this.createState())}/>
                     <View style={styles.board}>
                         <MineField board={this.state.board}
                             onOpenField={this.onOpenField}
