@@ -73,15 +73,11 @@ export default class App extends Component {
         return (
             <>
                 <SafeAreaView style={styles.container}>
-                    <Text style={styles.welcome}>Campo Minado</Text>
-                    <Text style={styles.instructions}>Tamanho da grade:
-                        {params.getRowsAmount()}x{params.getColumnsAmount()}
-                    </Text>
-                        <Header/>
+                    <Header />
                     <View style={styles.board}>
                         <MineField board={this.state.board}
-                            onOpenField={this.onOpenField} 
-                            onSelectField={this.onSelectField}/>
+                            onOpenField={this.onOpenField}
+                            onSelectField={this.onSelectField} />
                     </View>
                 </SafeAreaView>
             </>
@@ -93,7 +89,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: "flex-end",
-        backgroundColor:'#fff',
+        backgroundColor: '#fff',
         padding: 10
     },
     board: {
